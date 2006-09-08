@@ -4,13 +4,16 @@
 #include "common.h"
 #include "cpu.h"
 #include "cart.h"
+#include "video.h"
 using namespace std;
+
 int main(int argc, char *argv[])
 { 	 
-	bool draw=false;
+
 	SDL_Init(SDL_INIT_VIDEO);
-	SDL_Surface *screen;
-	screen=SDL_SetVideoMode(XRES,YRES,0,SDL_HWSURFACE|SDL_DOUBLEBUF);
+	tVideo *vid;
+	vid = new tVideo();
+	vid->initVideo();
 	int running=1;
 	char *tmp;
 	UINT32 *mainMemory;
@@ -32,15 +35,16 @@ int main(int argc, char *argv[])
 	cout << "A von AF = " << hex << (int) cpu->AF.b.l<<endl;
 	cout << "F von AF = " << hex << (int) cpu->AF.b.h<<endl;
 	cout << "AF = " << hex << cpu->AF.w<< endl;
+	cout << dec << SDL_GetTicks()<<endl;
+	SDL_Delay(1000);
+	cout << dec << SDL_GetTicks()<<endl;
 SDL_Event event;
 float startTime;
 float curTime;
 int fps=0;
 int temp;
 
-int lostCycles=0;
-int freeCycles=0;
-int lastCycle=0;
+UINT32 cycleFrame = 70224;
 
 while(running)
 {
@@ -59,7 +63,13 @@ while(running)
 		}
 	
 		}
-		SDL_Flip(screen);
+		
+		if (cpu->cycleCount >= cycleFrame)
+		{
+			vid->flipVideo();
+			cpu->cycleCount = 0;
+
+		}
 		//cpu->ADC_HL(0x0102);
 	curTime = SDL_GetTicks();
 	fps++;

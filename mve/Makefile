@@ -1,5 +1,5 @@
 CC = g++
-OBJ = main.o cpu.o cart.o
+OBJ = main.o cpu.o cart.o video.o
 CFLAGS = -g -c -Wall `sdl-config --cflags`
 
 main: $(OBJ)
@@ -10,3 +10,5 @@ cpu.o:	cpu.cpp
 	g++ cpu.cpp $(CFLAGS)
 cart.o:	cart.cpp
 	g++ cart.cpp $(CFLAGS)
+video.o: video.cpp
+	g++ video.cpp $(CFLAGS)
