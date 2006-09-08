@@ -24,6 +24,8 @@ class tCPU
 	UINT16 SP;
 	UINT16 PC;
 	UINT32 *mainMemory;
+	UINT32 *videoMemory;
+	UINT8 *romMemory;
 	UINT32 cycleCount;
 	bool active;
 	

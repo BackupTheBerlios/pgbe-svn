@@ -3,6 +3,7 @@
 #include <SDL/SDL.h>
 #include "common.h"
 #include "cpu.h"
+#include "cart.h"
 using namespace std;
 int main(int argc, char *argv[])
 {
@@ -12,11 +13,16 @@ int main(int argc, char *argv[])
 	int running=1;
 	char *tmp;
 	UINT32 *mainMemory;
-	mainMemory = (UINT32*) malloc(0x2000);
+/*	mainMemory = (UINT32*) malloc(0x2000);
+	romMemory = (UINT32*) malloc(0xFFFF);*/
 	tCPU *cpu;
 	cpu = new tCPU();
-	cpu->mainMemory = mainMemory;
+	tCart *cart;
+	cart = new tCart();
+	cpu->mainMemory = (UINT32*) malloc(0x2000);//mainMemory;
+	cpu->romMemory = (UINT8*) malloc(0x10000);
 	cpu->initCPU();
+	cart->loadROM(cpu->romMemory,"mario1.gb");
 	cout << "Z80 Engine started."<<endl;
 	//cpu->AF.b.l = 0x40;
 	cpu->setAF(0x20,0x40);
