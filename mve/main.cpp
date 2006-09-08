@@ -20,9 +20,10 @@ int main(int argc, char *argv[])
 	tCart *cart;
 	cart = new tCart();
 	cpu->mainMemory = (UINT32*) malloc(0x2000);//mainMemory;
-	cpu->romMemory = (UINT8*) malloc(0x10000);
+	cart->romMemory = (UINT8*) malloc(0x10000);
 	cpu->initCPU();
-	cart->loadROM(cpu->romMemory,"mario1.gb");
+	cart->loadROM(cart->romMemory,"mario1.gb");
+	cart->printProgramName();
 	cout << "Z80 Engine started."<<endl;
 	//cpu->AF.b.l = 0x40;
 	cpu->setAF(0x20,0x40);

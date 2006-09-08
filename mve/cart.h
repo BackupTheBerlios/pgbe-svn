@@ -11,8 +11,10 @@ class tCart
 	protected:
 	ifstream cartROM;
 	public:
+	UINT8 *romMemory;
 	tCart();
 	~tCart();
 	UINT8 loadROM(UINT8 *memory, const char *filename);
+	void printProgramName();
 };
 #endif

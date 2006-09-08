@@ -17,7 +17,16 @@ UINT8 tCart::loadROM(UINT8 *memory, const char *filename)
 		cartROM.get(temp);
 		memory[byteCount] = (UINT8) temp;
 	}
-	cout << "ROM loaded from " << filename <<endl;
+	cout << "ROM loaded from " << filename <<endl;	
 	cartROM.close();
 	return (0);
+}
+void tCart::printProgramName()
+{
+	char name[0x10];
+	for(int byteCount=0;byteCount!=0x0F;byteCount++)
+	{
+		name[byteCount] = (char) romMemory[0x134+byteCount];
+	}
+	cout << "The Program Name is: " << name << endl;
 }
