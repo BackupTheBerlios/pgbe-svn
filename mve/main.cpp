@@ -8,13 +8,15 @@ int main(int argc, char *argv[])
 {
 	SDL_Init(SDL_INIT_VIDEO);
 	SDL_Surface *screen;
-	screen=SDL_SetVideoMode(800,600,0,SDL_HWSURFACE|SDL_DOUBLEBUF);
+	screen=SDL_SetVideoMode(XRES,YRES,0,SDL_HWSURFACE|SDL_DOUBLEBUF);
 	int running=1;
 	char *tmp;
-	UINT32 mainMemory = (UINT32) malloc(0x2000);
+	UINT32 *mainMemory;
+	mainMemory = (UINT32*) malloc(0x2000);
 	tCPU *cpu;
 	cpu = new tCPU();
-	cpu->mainMemory = &mainMemory;
+	cpu->mainMemory = mainMemory;
+	cpu->initCPU();
 	cout << "Z80 Engine started."<<endl;
 	//cpu->AF.b.l = 0x40;
 	cpu->setAF(0x20,0x40);
@@ -46,6 +48,7 @@ while(running)
 	
 		}
 		SDL_Flip(screen);
+		//cpu->ADC_HL(0x0102);
 	curTime = SDL_GetTicks();
 	fps++;
 	if((curTime-startTime) >= 1000/MAX_FRAMES) 

@@ -25,6 +25,8 @@ inline void endianSwapUINT32(unsigned int& x)
 }
 
 #define MAX_FRAMES 60
+#define XRES 160*2
+#define YRES 144*2
 #define Z_FLAG 0x80
 #define N_FLAG 0x40
 #define H_FLAG 0x20

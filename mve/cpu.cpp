@@ -23,6 +23,9 @@ Z80Reg tCPU::getAF()
 }
 int tCPU::initCPU()
 {
+	memset(mainMemory,0,0x2000);
+	AF.w = BC.w = DE.w = HL.w = 0;
+	PSW = 0x0;
 	return(0);
 }
 int tCPU::resetCPU()
@@ -45,4 +48,23 @@ bool tCPU::getActive()
 void tCPU::execCycles(int cycles)
 {
 	cycleCount += cycles;
+}
+/*
+	Z80 CPU instructions
+*/
+void tCPU::ADC_HLss (UINT16 Value)
+{
+	mainMemory[HL.w] += mainMemory[Value];
+	execCycles(15);
+}
+void tCPU::ADC_As (UINT8 Value)
+{
+	AF.b.h += mainMemory[Value];
+	//execCycles(15);
+}
+
+void tCPU::ADD_An (UINT8 Value)
+{
+	AF.b.h += Value;
+	execCycles(7);
 }

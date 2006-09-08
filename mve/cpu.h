@@ -35,5 +35,8 @@ class tCPU
 	bool setActive(bool Value);
 	bool getActive();
 	void execCycles(int cycles);
+	void ADC_HLss(UINT16 Value);
+	void ADC_As(UINT8 Value);
+	void ADD_An(UINT8 Value);
 };
 #endif
