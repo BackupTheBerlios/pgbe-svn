@@ -12,9 +12,11 @@ class tCart
 	ifstream cartROM;
 	public:
 	UINT16 ROMSize;
+	UINT16 Japanese;
 	UINT8 *romMemory;
 	tCart();
 	~tCart();
+	UINT8 loadLogo();
 	UINT8 loadROM(const char *filename);
 	void printProgramName();
 	UINT16 checkROMsize(const char *filename);

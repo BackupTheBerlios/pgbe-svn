@@ -33,4 +33,5 @@ inline void endianSwapUINT32(unsigned int& x)
 #define C_FLAG 0x10
 #define BIG_END 1
 
+
 #endif

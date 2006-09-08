@@ -21,8 +21,8 @@ class tCPU
 	~tCPU();
 	Z80Reg AF,BC,DE,HL, IX, IY;
 	UINT8 PSW;
-	UINT16 SP;
-	UINT16 PC;
+	Z80Reg SP;
+	Z80Reg PC;
 	UINT16 RAMSize;
 	UINT32 *mainMemory;
 	UINT32 *videoMemory;
@@ -41,5 +41,8 @@ class tCPU
 	void ADC_HLss(UINT16 Value);
 	void ADC_As(UINT8 Value);
 	void ADD_An(UINT8 Value);
+	void LD_BCnn(UINT16 Value);
+	void LD_BCA();
+	void NOP();
 };
 #endif
