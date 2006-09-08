@@ -11,10 +11,12 @@ class tCart
 	protected:
 	ifstream cartROM;
 	public:
+	UINT16 ROMSize;
 	UINT8 *romMemory;
 	tCart();
 	~tCart();
-	UINT8 loadROM(UINT8 *memory, const char *filename);
+	UINT8 loadROM(const char *filename);
 	void printProgramName();
+	UINT16 checkROMsize(const char *filename);
 };
 #endif

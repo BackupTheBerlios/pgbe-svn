@@ -23,6 +23,7 @@ class tCPU
 	UINT8 PSW;
 	UINT16 SP;
 	UINT16 PC;
+	UINT16 RAMSize;
 	UINT32 *mainMemory;
 	UINT32 *videoMemory;
 	//UINT8 *romMemory;
