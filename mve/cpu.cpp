@@ -12,14 +12,39 @@ tCPU::~tCPU()
 
 void tCPU::setAF(UINT8 h,UINT8 l)
 {
-
 			AF.b.l = l;
 			AF.b.h = h;
-
 }
 Z80Reg tCPU::getAF()
 {
 	return AF;
+}
+void tCPU::setBC(UINT8 h,UINT8 l)
+{
+			BC.b.l = l;
+			BC.b.h = h;
+}
+Z80Reg tCPU::getBC()
+{
+	return BC;
+}
+void tCPU::setDE(UINT8 h,UINT8 l)
+{
+			DE.b.l = l;
+			DE.b.h = h;
+}
+Z80Reg tCPU::getDE()
+{
+	return DE;
+}
+void tCPU::setHL(UINT8 h,UINT8 l)
+{
+			HL.b.l = l;
+			HL.b.h = h;
+}
+Z80Reg tCPU::getHL()
+{
+	return HL;
 }
 int tCPU::initCPU()
 {
@@ -27,6 +52,13 @@ int tCPU::initCPU()
 	AF.w = BC.w = DE.w = HL.w = 0;
 	PSW = 0x0;
 	PC.w = 0x0100;
+	return(0);
+}
+int tCPU::getStatus()
+{
+	cycleCount = 8;
+	cout << "Cycle Clount: " << cycleCount << endl;
+	cout << "AF: " << AF.w << " BC: " << BC.w << " DE: " << DE.w << " HL: "<< HL.w << endl;
 	return(0);
 }
 int tCPU::resetCPU()

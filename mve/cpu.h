@@ -21,6 +21,8 @@ class tCPU
 	~tCPU();
 	Z80Reg AF,BC,DE,HL, IX, IY;
 	UINT8 PSW;
+	/*UINT8 ZPSflag;
+	UINT8 CFlag;*/
 	Z80Reg SP;
 	Z80Reg PC;
 	UINT16 RAMSize;
@@ -32,7 +34,15 @@ class tCPU
 	
 	void setAF(UINT8 h, UINT8 l);
 	Z80Reg getAF();
+	void setBC(UINT8 h, UINT8 l);
+	Z80Reg getBC();
+	void setDE(UINT8 h, UINT8 l);
+	Z80Reg getDE();
+	void setHL(UINT8 h, UINT8 l);
+	Z80Reg getHL();
+	
 	int initCPU();
+	int getStatus();
 	int resetCPU();
 	int stopCPU();
 	bool setActive(bool Value);

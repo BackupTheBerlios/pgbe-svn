@@ -35,17 +35,23 @@ int main(int argc, char *argv[])
 	cout << "A von AF = " << hex << (int) cpu->AF.b.l<<endl;
 	cout << "F von AF = " << hex << (int) cpu->AF.b.h<<endl;
 	cout << "AF = " << hex << cpu->AF.w<< endl;
-	cout << dec << SDL_GetTicks()<<endl;
-	SDL_Delay(1000);
-	cout << dec << SDL_GetTicks()<<endl;
 SDL_Event event;
+SDL_keysym keysym;
 float startTime;
 float curTime;
+float neededTime;
+float checkTime;
 int fps=0;
 int temp;
 
 UINT32 cycleFrame = 70224;
-
+for(int i=0;i!=XRES;i++)
+{
+	for(int j=0;j!=YRES;j++)
+	{
+		vid->drawPixel(i,j,i,j,i);
+	}
+}
 while(running)
 {
 	startTime = SDL_GetTicks();
@@ -54,8 +60,21 @@ while(running)
 		switch(event.type)
 		{
 			case SDL_KEYDOWN:
-				running = 0;
-				break;
+				keysym=event.key.keysym;
+				switch(keysym.sym)
+				{
+					case SDLK_ESCAPE:
+					running = 0;
+					break;
+					case SDLK_f:
+					// Windows- & Linux-specific
+					//SDL_WM_ToggleFullScreen(vid->screen);
+					break;
+					default:
+					break;
+				}
+					
+			break;
 			case SDL_QUIT:
 				running = 0;
 				break;
@@ -63,14 +82,25 @@ while(running)
 		}
 	
 		}
+		vid->flipVideo();
 		
-		if (cpu->cycleCount >= cycleFrame)
+	if (cpu->cycleCount >= cycleFrame)
 		{
-			vid->flipVideo();
-			cpu->cycleCount = 0;
-
+			checkTime = SDL_GetTicks();
+			cout <<"Check: " << checkTime << endl;
+			neededTime = SDL_GetTicks();
+			cout << "Needed: " << neededTime <<endl;
+			while(neededTime-checkTime >= 16)
+			{
+				
+			}
+				vid->flipVideo();
+				cout << "Updated"<<endl;
+				cpu->cycleCount = 0;
+			//cout << (neededTime-checkTime) << endl;
 		}
-		//cpu->ADC_HL(0x0102);
+		cpu->ADC_HLss(0x0102);
+		
 	curTime = SDL_GetTicks();
 	fps++;
 	if((curTime-startTime) >= 1000/MAX_FRAMES) 
@@ -82,5 +112,9 @@ while(running)
 //	cout << "Current FPS is at: "<<dec<< temp << endl;
 	
 }
+cpu->getStatus();
+delete vid;
+delete cpu;
+delete cart;
 atexit(SDL_Quit);
 }
