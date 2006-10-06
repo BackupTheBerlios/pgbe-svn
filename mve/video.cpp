@@ -63,3 +63,15 @@ UINT32 tVideo::drawPixel(UINT32 x, UINT32 y, UINT8 R, UINT8 G, UINT8 B)
   }
   return(0);
 }
+UINT32 tVideo::toggleFullScreen()
+{
+    if(SDL_WM_ToggleFullScreen(screen))
+    {
+        return(0);
+    }
+    else
+    {
+        return(1);
+    }
+    
+}

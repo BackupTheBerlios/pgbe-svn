@@ -31,7 +31,7 @@ class tCPU
 	//UINT8 *romMemory;
 	UINT32 cycleCount;
 	bool active;
-	
+	static bool running;
 	void setAF(UINT8 h, UINT8 l);
 	Z80Reg getAF();
 	void setBC(UINT8 h, UINT8 l);

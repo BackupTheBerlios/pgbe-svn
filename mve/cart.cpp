@@ -9,7 +9,8 @@ tCart::~tCart()
 }
 UINT16 tCart::checkROMsize(const char *filename)
 {
-	char temp;
+	
+        char temp;
 	cartROM.open(filename,ios::binary|ios::in);
 	cartROM.seekg(0x148,ios::beg);
 	cartROM.get(temp);
@@ -37,6 +38,7 @@ UINT16 tCart::checkROMsize(const char *filename)
 		break;
 		default:
 		cout << "Couldn't find a correct value for the ROM Size" << endl;
+                exit(0);
 		break;
 	}
 	cartROM.close();

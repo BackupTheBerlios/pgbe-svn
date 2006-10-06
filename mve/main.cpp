@@ -5,8 +5,9 @@
 #include "cpu.h"
 #include "cart.h"
 #include "video.h"
+#include "main.h"
 using namespace std;
-
+bool tCPU::running=1;
 int main(int argc, char *argv[])
 { 	 
 
@@ -14,7 +15,6 @@ int main(int argc, char *argv[])
 	tVideo *vid;
 	vid = new tVideo();
 	vid->initVideo();
-	int running=1;
 	char *tmp;
 	UINT32 *mainMemory;
 /*	mainMemory = (UINT32*) malloc(0x2000);
@@ -52,7 +52,7 @@ for(int i=0;i!=XRES;i++)
 		vid->drawPixel(i,j,i,j,i);
 	}
 }
-while(running)
+while(tCPU::running)
 {
 	startTime = SDL_GetTicks();
 		while(SDL_PollEvent(&event)) 
@@ -64,11 +64,11 @@ while(running)
 				switch(keysym.sym)
 				{
 					case SDLK_ESCAPE:
-					running = 0;
+					tCPU::running = 0;
 					break;
 					case SDLK_f:
 					// Windows- & Linux-specific
-					//SDL_WM_ToggleFullScreen(vid->screen);
+					vid->toggleFullScreen();
 					break;
 					default:
 					break;
@@ -76,7 +76,7 @@ while(running)
 					
 			break;
 			case SDL_QUIT:
-				running = 0;
+				tCPU::running = 0;
 				break;
 		
 		}
