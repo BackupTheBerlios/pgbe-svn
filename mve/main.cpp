@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
 	romMemory = (UINT32*) malloc(0xFFFF);*/
 	tCPU *cpu;
 	cpu = new tCPU();
-	tCart *cart;
+	tCart *cart;    
 	cart = new tCart();
 	cpu->mainMemory = (UINT32*) malloc(0x2000);//mainMemory;
 	cart->ROMSize = cart->checkROMsize("mario1.gb"); // Allocate memory & set the ROMSize value
@@ -52,6 +52,7 @@ for(int i=0;i!=XRES;i++)
 		vid->drawPixel(i,j,i,j,i);
 	}
 }
+
 while(tCPU::running)
 {
 	startTime = SDL_GetTicks();
@@ -60,10 +61,13 @@ while(tCPU::running)
 		switch(event.type)
 		{
 			case SDL_KEYDOWN:
+                            
 				keysym=event.key.keysym;
 				switch(keysym.sym)
 				{
 					case SDLK_ESCAPE:
+                                              cout << "Read something: " << cpu->readMemory(0x4000) <<endl;
+
 					tCPU::running = 0;
 					break;
 					case SDLK_f:

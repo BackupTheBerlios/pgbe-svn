@@ -9,7 +9,13 @@ tVideo::~tVideo()
 }
 UINT32 tVideo::initVideo()
 {
-	screen = SDL_SetVideoMode(XRES,YRES,0,SDL_DOUBLEBUF|SDL_HWSURFACE|SDL_HWPALETTE);
+        videoRAM = new char[0x4000]; // New 16KB (16384 Bytes) of VRAM 
+        for(int i=0;i<0x4001;i++)
+        {
+                videoRAM[i] = 0x00;
+        }
+        
+        screen = SDL_SetVideoMode(XRES,YRES,0,SDL_DOUBLEBUF|SDL_HWSURFACE|SDL_HWPALETTE);
 	return(0);
 }
 UINT32 tVideo::flipVideo()

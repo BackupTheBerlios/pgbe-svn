@@ -32,6 +32,7 @@ class tCPU
 	UINT32 cycleCount;
 	bool active;
 	static bool running;
+        char readMemory(int address);
 	void setAF(UINT8 h, UINT8 l);
 	Z80Reg getAF();
 	void setBC(UINT8 h, UINT8 l);

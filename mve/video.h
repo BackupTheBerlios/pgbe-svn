@@ -10,7 +10,9 @@ class tVideo
 {
 	private:
 	protected:
+        
 	public:
+        char *videoRAM;
 	SDL_Surface *screen;
 	tVideo();
 	~tVideo();
