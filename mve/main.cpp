@@ -6,11 +6,13 @@
 #include "cart.h"
 #include "video.h"
 #include "main.h"
+#include "system.h"
 using namespace std;
 bool tCPU::running=1;
 int main(int argc, char *argv[])
 { 	 
-
+        tSystem *sys;
+        sys = new tSystem();
 	SDL_Init(SDL_INIT_VIDEO);
 	tVideo *vid;
 	vid = new tVideo();
@@ -23,8 +25,9 @@ int main(int argc, char *argv[])
 	cpu = new tCPU();
 	tCart *cart;    
 	cart = new tCart();
-	cpu->mainMemory = (UINT32*) malloc(0x2000);//mainMemory;
-	cart->ROMSize = cart->checkROMsize("mario1.gb"); // Allocate memory & set the ROMSize value
+	//cpu->mainMemory = (UINT32*) malloc(0x2000);//mainMemory;
+	cpu->mainMemory = (UINT32*) malloc(0x10000);
+        cart->ROMSize = cart->checkROMsize("mario1.gb"); // Allocate memory & set the ROMSize value
 	//cart->romMemory = (UINT8*) malloc(0x10000);
 	cpu->initCPU();
 	cart->loadROM("mario1.gb");
@@ -66,7 +69,8 @@ while(tCPU::running)
 				switch(keysym.sym)
 				{
 					case SDLK_ESCAPE:
-                                              cout << "Read something: " << cpu->readMemory(0x4000) <<endl;
+                                       //       cout << "Read something: " << cpu->readMemory(0x4000) <<endl;
+                                            cpu->readMemory(0x4000);
 
 					tCPU::running = 0;
 					break;
@@ -120,5 +124,6 @@ cpu->getStatus();
 delete vid;
 delete cpu;
 delete cart;
+delete sys;
 atexit(SDL_Quit);
 }

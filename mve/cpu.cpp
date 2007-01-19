@@ -78,6 +78,7 @@ Z80Reg tCPU::getHL()
 int tCPU::initCPU()
 {
 	memset(mainMemory,0,0x2000);
+        videoMemory = new UINT32[0x8000];
 	AF.w = BC.w = DE.w = HL.w = 0;
 	PSW = 0x0;
 	PC.w = 0x0100;

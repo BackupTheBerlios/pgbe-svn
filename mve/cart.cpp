@@ -37,7 +37,7 @@ UINT16 tCart::checkROMsize(const char *filename)
 		romMemory = (UINT8*) malloc(0x80000);
 		break;
 		default:
-		cout << "Couldn't find a correct value for the ROM Size" << endl;
+		cout << "Couldn't find a correct value for the ROM Size:" << (UINT16)temp << endl;
                 exit(0);
 		break;
 	}
