@@ -32,9 +32,13 @@ tCPU::~tCPU()
 
 char tCPU::readMemory(int address)
 {
-    if((address < 0x8000)&& address >=0x0000)
+    if((address > 0x8000)&& address < 0xA000)
         {  
             return (videoMemory[address]);
+        }
+    if(address > 0xc000 && address < 0xe000)
+        {
+            return (mainMemory[address]);
         }
     //cout << "Returned " << videoMemory[address] << " from " << hex << address << dec "." << endl;
  }
@@ -77,6 +81,7 @@ Z80Reg tCPU::getHL()
 }
 int tCPU::initCPU()
 {
+        mainMemory = new UINT32[0xffff];
 	memset(mainMemory,0,0x2000);
         videoMemory = new UINT32[0x8000];
 	AF.w = BC.w = DE.w = HL.w = 0;
@@ -86,8 +91,8 @@ int tCPU::initCPU()
 }
 int tCPU::getStatus()
 {
-	cycleCount = 8;
-	cout << "Cycle Clount: " << cycleCount << endl;
+	//cycleCount = 8;
+	cout << "Cycle Count: " << cycleCount << endl;
 	cout << "AF: " << AF.w << " BC: " << BC.w << " DE: " << DE.w << " HL: "<< HL.w << endl;
 	return(0);
 }
@@ -108,10 +113,21 @@ bool tCPU::getActive()
 {
 	return active;
 }
+#define A   AF.b.l
 void tCPU::execCycles(int cycles)
 {
+        int opcode;
 	cycleCount += cycles;
+        cout << A;
+        while (cycleCount > 0)
+        {
+            PC.w ++;
+            cycleCount--;
+        }
+        
 }
+
+
 /*
 	Z80 CPU instructions
 */

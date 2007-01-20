@@ -25,6 +25,7 @@ class tCPU
 	UINT8 CFlag;*/
 	Z80Reg SP;
 	Z80Reg PC;
+        Z80Reg result;
 	UINT16 RAMSize;
 	UINT32 *mainMemory;
 	UINT32 *videoMemory;

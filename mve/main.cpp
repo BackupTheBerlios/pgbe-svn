@@ -90,8 +90,9 @@ while(tCPU::running)
 		}
 	
 		}
+                cpu->execCycles(5);
 		vid->flipVideo();
-		
+/*		
 	if (cpu->cycleCount >= cycleFrame)
 		{
 			checkTime = SDL_GetTicks();
@@ -118,9 +119,9 @@ while(tCPU::running)
 		startTime = curTime;
 	}
 //	cout << "Current FPS is at: "<<dec<< temp << endl;
-	
+*/	
 }
-cpu->getStatus();
+//cpu->getStatus();
 delete vid;
 delete cpu;
 delete cart;
