@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="31">
+  <projectmakefile>Makefile</projectmakefile>
+  <defaultConf>0</defaultConf>
+  <confs>
+    <conf name="Debug" type="1">
+    </conf>
+    <conf name="Release" type="1">
+    </conf>
+  </confs>
+</configurationDescriptor>
