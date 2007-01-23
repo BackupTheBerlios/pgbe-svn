@@ -23,6 +23,7 @@ include Makefile
 # Object Files
 OBJECTFILES= \
 	build/Release/GNU-Linux-x86/cpu.o \
+	build/Release/GNU-Linux-x86/memory.o \
 	build/Release/GNU-Linux-x86/main.o
 
 # C Compiler Flags
@@ -48,6 +49,10 @@ dist/Release/GNU-Linux-x86/si: ${OBJECTFILES}
 build/Release/GNU-Linux-x86/cpu.o: cpu.cc 
 	${MKDIR} -p build/Release/GNU-Linux-x86
 	$(COMPILE.cc) -O2 -o build/Release/GNU-Linux-x86/cpu.o cpu.cc
+
+build/Release/GNU-Linux-x86/memory.o: memory.cc 
+	${MKDIR} -p build/Release/GNU-Linux-x86
+	$(COMPILE.cc) -O2 -o build/Release/GNU-Linux-x86/memory.o memory.cc
 
 build/Release/GNU-Linux-x86/main.o: main.cc 
 	${MKDIR} -p build/Release/GNU-Linux-x86

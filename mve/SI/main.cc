@@ -6,11 +6,12 @@
 #include <SDL/SDL.h>
 #include <SDL/SDL_image.h>
 #include "stdtypes.h"
+#include "cpu.h"
+#include "memory.h"
 using namespace std;
 #define SPEED 5
 SDL_Surface *screen;
 SDL_Surface *wall;
-static unsigned char *mem;
 //mem = new unsigned char[0x4000];
 
 
@@ -47,6 +48,8 @@ int LoadAt (const char *filename)
 int main(int argc, char** argv) 
 {
     using namespace std;
+    tCPU *cpu = new tCPU();
+    tMemory *mem = new tMemory();
     SDL_Rect srect,drect;
     SDL_Event event;
     SDL_Surface *buffer;
@@ -62,7 +65,7 @@ int main(int argc, char** argv)
     {
             fprintf(stderr,"Fehler: %s", SDL_GetError());
     }
-    wall = IMG_Load("wallpaper.png");
+    
     LoadAt("invaders.e");
     SDL_ShowCursor(0);
     
