@@ -1,5 +1,6 @@
 
 #include <stdlib.h>
+#include <cstdlib>
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -33,6 +34,7 @@ static const unsigned char cycle_table[0x100]={
 	5, 10,10,18,11,11,7, 11,5, 5, 10,4, 11,0, 7, 11,
 	5, 10,10,4, 11,11,7, 11,5, 5, 10,4, 11,0, 7, 11
 };
+#define A cpu->reg.a
 int LoadAt (const char *filename)
 {
     ifstream omg("invaders.e",ios::binary);
@@ -50,6 +52,9 @@ int main(int argc, char** argv)
     using namespace std;
     tCPU *cpu = new tCPU();
     tMemory *mem = new tMemory();
+    cpu->pc = 0xffdd;
+    printf("pclo:%0x",cpu->pclo);
+    printf("pchi:%0x",cpu->pchi);
     SDL_Rect srect,drect;
     SDL_Event event;
     SDL_Surface *buffer;

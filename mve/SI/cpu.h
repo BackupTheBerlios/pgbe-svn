@@ -13,24 +13,39 @@ using namespace std;
 
 
 class tCPU
-{
+{   
     public:
-    unsigned short pc;
     union
     {
-        unsigned char pclo,pchi;
+        unsigned short pc;
+        struct
+        {
+            unsigned char pclo,pchi;
+        };
+    
     };
-    unsigned short sp;
+    
+    
     union
     {
-        unsigned char splo,sphi;
+        unsigned short sp;
+        struct
+        {
+            unsigned char splo,sphi;  
+        };
     };
+    
     unsigned short psw,bc,de,hl;
     union
     {
         unsigned char flags;
         unsigned char a,c,b,e,d,l,h;
     }reg;
+    int cycles;
+    unsigned short result;
+    unsigned char irq;
+    unsigned char irqpending;
+    unsigned char aux;
     tCPU();
     ~tCPU();
     private:
