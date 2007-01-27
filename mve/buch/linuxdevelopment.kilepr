@@ -20,10 +20,10 @@ QuickBuild=
 
 [item:linux.tex]
 archive=true
-column=130
+column=16
 encoding=UTF-8
 highlight=LaTeX
-line=68
+line=241
 open=true
 
 [item:linuxdevelopment.kilepr]
