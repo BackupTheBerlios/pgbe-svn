@@ -11,7 +11,7 @@
 #include <string>
 using namespace std;
 
-
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
 class tCPU
 {   
     public:
@@ -34,12 +34,15 @@ class tCPU
             unsigned char splo,sphi;  
         };
     };
-    
+     union
+    {   
     unsigned short psw,bc,de,hl;
-    union
-    {
-        unsigned char flags;
-        unsigned char a,c,b,e,d,l,h;
+
+        struct
+        {
+            unsigned char a,flags,b,c,d,e,h,l;  
+        }
+          
     }reg;
     int cycles;
     unsigned short result;

@@ -1,0 +1,196 @@
+\documentclass[b5paper,10pt,dvips,fleqn,titlepage,twoside]{book}
+%\pagestyle{headings}
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts}
+\usepackage{multirow}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\pagestyle{headings}
+\usepackage{rotating}
+\usepackage{subfigure}
+\usepackage{xcolor}
+
+\usepackage[dvips]{hyperref}
+\hypersetup{%
+   pdfauthor=Michael Durrer,%
+   pdfstartview=%
+}
+
+\author{Michael Durrer}
+\title{Linux Game Development}
+\date{2007-01-21}
+\usepackage{makeidx}
+\makeindex
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+\begin{LARGE} \textbf{Linux Game Development}\end{LARGE}
+\newline
+\newline
+\begin{small}Written in \LaTeX by Michael Durrer\newline\end{small}
+\end{center}
+\footnotetext{ Last update on \today }
+\end{titlepage}
+\newpage
+\tableofcontents
+\setcounter{secnumdepth}{2}
+\part{Einf\"{u}hrung}
+\chapter{Programmieren unter Linux}
+
+\section{Einleitung}
+Sie haben dieses Buch gekauft, von meiner Seite als PDF runtergeladen oder wie auch immer erhalten und fragen sich nun vielleicht Folgendes: 
+
+\begin{flushleft}
+\emph{
+Wie programmiere ich ein Spiel oder eine Anwendung f\"{u}r Linux?\newline Womit fange ich \"{u}berhaupt an?\newline Kann ich das \"{u}berhaupt?}\newline
+\end{flushleft}
+
+So zumindest waren meine \"{u}berlegungen, als ich vor vielen Jahren angefangen habe, mich mit der Interna von Rechnern und der Digitaltechnik herumzuschlagen. Und in Erinnerung an die Problematik dieses Beginns (der heute in der riesigen F\"{a}lle an Informationen im Internet immerhin erleichtert worden ist), m\"{o}chte ich dieses Buch all denen zur Verf\"{u}gung stellen, die sich gerade inmitten jener Phase befinden und dringend Informationen suchen oder bereits diverse Grundlagen besitzen und darauf aufbauen m\"{o}chten. Nat\"{u}rlich sei dieses Buch auch all Jenen ans Herz gelegt, die sich schlichtweg weiterbilden m\"{o}chten in \textbf{C/C++} oder der \textbf{SDL-Bibliothek}.
+\newpage
+Da sich hier aus obigen Gr\"{u}nden einige vom Wissensstand doch sehr verschiedene Zielgruppen herauskristallisieren, habe ich das Buch in mehrere spezifische Sektionen aufgeteilt:
+
+\begin{itemize}
+\item Programmieren unter Linux
+\item Die Grundlagen von ANSI-C und C++
+\item Die Grundlagen von Python
+\item Einstieg in SDL mit Beispielen in ANSI-C \& C++ \& Python
+\item Emulation - Fremde Systeme simulieren
+\item Open Source Lizenzen - Was ist das eigentlich genau?
+\end{itemize}\medskip 
+Dabei ist der Schwerpunkt auf Linux gelegt, doch habe ich auch durchgehend Wert auf Portabilit\"{a}t gelegt.\newline
+Speziell in der Spielewelt w\"{a}re eine h\"{a}ufigere Verwendung der SDL angebracht, ist sie doch portabel auf allen g\"{a}ngigen Plattformen wie Windows Vista, Linux oder Mac OS X.\newline
+Portabel heisst in diesem Sinne, dass durch Verwendung von SDL f\"{u}r Steuer-, Eingabe-, Audio- und Videoger\"{a}te diese universal programmierbar werden. Eine einheitliche API (\textit{Application Programming Interface}) steuert die Ger\"{a}te nun an, der Programmierer sieht nur noch die API und deren Dokumentation. Spezifische Eigenheiten f\"{u}r jeweilige Ger\"{a}te und Betriebssysteme, z.B. verschiedene Grafikkarten, \"{u}bernimmt nun die SDL-Schicht komplett und \"{u}bersetzt sie in die Sprache der jeweiligen Betriebssysteme\newline
+
+Zus\"{a}tzlich habe ich mich f\"{u}r dieses Buch auf 3 Programmiersprachen festgelegt: \textbf{C, C++ \& Python}.\newline C/C++ ist quasi ein Industrie-Standard und wird seit Jahren in der Applikationsentwicklung da eingesetzt, wo man schnelle und \"{u}bersichtliche Anwendungen ben\"{o}tigt, zu diesen geh\"{o}ren auch grafiklastige Applikationen. Seit einigen Jahren sind aber die Prozessoren mittlerweile an einem Punkt angelangt, wo sich die Entwicklung nicht mehr so stark an Geschwindigkeit multipliziert wie fr\"{u}her.
+
+Die meisten Rechner sind heutzutage schon bei einer Geschwindigkeit angelangt, mit der die meisten Spiele auf dem Markt lauff\"{a}hig sind, zudem wird immer mehr Rechenleistung auf die enorm leistugnsf\"{a}higen Grafikkarten ausgelagert, die auch auf langsameren Rechnern eine gute Grafikleistung hervorzaubern k\"{o}nnen und nicht mehr zwingend eine 'schnelle Programmiersprache' ben\"{o}tigen.
+
+An dieser Stelle springt Python ein: Python ist eine skriptbasierte Sprache, die ebenfalls objektorientiert aufgebaut ist und somit eine exzellente \"{u}bersicht bietet. Desweiteren ist sie sehr einfach zu erlernen und kann ebenfalls mit SDL umgehen, es richtet sich daher eher an die Programmieranf\"{a}nger, was jedoch nicht heissen soll, dass man damit nicht genauso komplexe Applikationen bauen k\"{o}nnte.\newline Wie auch immer Ihre F\"{a}higkeiten und Ihr Wissen derzeit liegen, Ich hoffe Sie finden mit diesem Buch ein Themengebiet, dass Sie weiterbringt und Ihnen einen einfachen Einstieg in die Thematik erm\"{o}glicht.
+Beachten Sie jedoch bitte, dass ich Ihnen nahelege, gute Vorkenntnisse in ANSI-C oder C++ mitzubringen, da ich den Grossteil dieses Buches doch darauf st\"{u}tze und auf jeden Fall fr\"{u}her oder sp\"{a}ter f\"{u}r professionelle Anwendungsentwicklung gelernt werden muss.
+
+An den Teil \"{u}ber \textit{Emulation}, sollten sich nur echte Profis ranwagen, welche C/C++ bereits in- und ausw\"{a}ndig kennen. Auch wenn vielleicht nicht alles beim ersten Durchlesen verst\"{a}ndlich sein mag f\"{u}r Anf\"{a}nger, interessant ist es dennoch allemal und vermittelt Fach- und Hintergrundwissen, dass sehr hilfreich beim Verst\"{a}ndnis der Programmierung sein kann.
+Auch wenn dies nach nun nach viel Arbeit anh\"{o}ren mag, bringt es doch viel Spass mit sich. Und eben diesen w\"{u}nsche ich Ihnen nun mit diesem Buch!
+
+
+Ihr Michael Durrer
+\newpage
+\part{SDL - Der Simple DirectMedia Layer}
+\label{part:SDL}
+\chapter{SDL-Initialisierung}
+\section{Einige Hintergrundinformationen...}
+SDL steht, wie schon im Titel erw\"{a}hnt, f\"{u}r die Simple DirectMedia Layer Library. Der Name sagt uns schon, dass uns SDL einen \textit{simplen} und \textit{direkten} Zugriff auf Medien, bzw. Multimedia-Hardware bieten soll.
+
+	Sie wurde entwickelt von Sam Latinga, w\"{a}hrend er bei Loki Software, bekannt f\"{u}r ihre Linux-Portierungen von Windows-Spielen, als leitender Programmierer angestellt war.
+SDL diente als Basis f\"{u}r die Portierung vieler Windows-Spiele, darunter \emph{Civilization: Call to Power}und \emph{Descent 3}, um nur Einige zu nennen.\\
+Dank der vielen F\"{a}higkeiten der Bibliothek und ihren OpenGL-Erweiterungen hat, vorallem aber auch dank der LGPL-Lizenzierung (mehr dazu im Kapitel \textbf{Open Source Lizenzen - Was ist das eigentlich genau?}), haben zu einer enormen Verbreitung dieser Entwicklungsbibliothek gef\"{u}hrt. Mittlerweile entwickeln ein ganzer Haufen an professionellen als auch private Entwickler an SDL weiter und sorgen daf\"{u}r, dass auch weiterhin aktuelle Technologien leicht ansprechbar bleiben \"{u}ber ein vereinfachtes Interface.
+
+Durch die grosse Verbreitung ergibt sich noch ein besonders interessanter Vorteil: Die Plattformunabh\"{a}ngigkeit. Mittlerweile unterst\"{u}tzt SDL mehr als nur alle g\"{a}ngigen Betriebssysteme wie Linux, Windows und Mac OS X sowie die meisten Hochsprachen wie C/C++ sondern auch viele Nischen-Betriebssysteme und -Plattformen. Unter Anderem AmigaOS, SEGA Dreamcast, Microsoft XBox, Sony Playstation u.v.m.\newline Ganz im Gegensatz zu DirectX von Microsoft, welches ja alles Andere als cross-platform-f\"{a}hig ist...
+
+Unter Windows hat SDL zudem einen kleinen (selbst unverschuldeten) Haken: Microsoft l\"{a}sst den Zugriff auf die Multimedia-Hardware, insbesondere Grafikkarten, nur \"{u}ber ihr eigenes Entwicklungs-Kit zu, n\"{a}mlich DirectX. Somit kann auch die SDL-Schicht nur auf die DirectX-Schicht aufbauen und ist somit gezwungenermassen leicht langsamer unter Windows, wenn man das Programm mit einem Kompilat auf dem gleichen Rechner, jedoch unter einem anderen Betriebssystem testet. Dieser f\"{a}llt jedoch nicht allzustark ins Gewicht und seien wir doch ehrlich:\newline Uns ist die einfache Programmierung und das Erreichen eines gr\"{o}sseren Zielpublikums durch Cross-Platform-Kompatibilit\"{a}t ein paar Frames pro Sekunde wert, oder? 
+\newpage
+\section{Installation}
+Zuerst brauchen wir nat\"{u}rlich eine saubere SDL-Installation f\"{u}r unseren Compiler (in unserem Fall GCC).
+\newpage
+\subsection{Header-Dateien}
+Um SDL benutzen zu k\"{o}nnen, m\"{u}ssen wir nat\"{u}rlich in unserer Hauptdatei (z.B. \emph{main.c} oder \emph{main.cpp}) die SDL.h Header-Datei inkludieren:
+\begin{quote}
+	\#include <SDL.h>
+\end{quote}
+Nun stehen uns alle Funktionen und Prozeduren der SDL-Welt zur Verf\"{u}gung! Willkommen in SDL!
+Als n\"{a}chsten Schritt m\"{u}ssen wir einen Modus initialisieren, zum Beispiel um Video-spezifische Sachen darzustellen den Video-Modus.
+
+
+\subsubsection{SDL-Erweiterungen}
+Es gibt für SDL noch eine ganze Reihe an Erweiterungen, die allesamt auf der normalen SDL-Bibliothek aufbauen.
+Eine kleine Auswahl:\\
+\begin{table}[h]
+\caption{Verschiedene hilfreiche SDL-Erweiterungen und Variationen}
+\begin{tabular}{|l|p{2in}|r|}
+\hline
+\textbf{\emph{SDL-Erweiterung}} & \textbf{\emph{Beschreibung}} & \textbf{\emph{Hinweise}}\\\hline
+SDL\_Image & Bild-Manipulation und diverse Grafik-Funktionen, liest versch. Bildformate ein& Win/Linux/OSX\\\hline
+SDL\_Mixer & Audio-Kanäle mischen und Musikdateien abspielen (MP3, MIDI, MOD,...) & \\\hline
+SDL\_Net & Netzwerk-Support für SDL, baut TCP/IP-Verbindungen auf, ideal für Spiele& \\\hline
+SDL\_TTF & TrueType Font-Unterstützung & \\\hline
+\end{tabular}
+\end{table}
+
+
+Zu beachten ist, dass alle diese Erweiterungen SDL bereits voraussetzen.
+Besonders empfehlenswert, worauf ich auch in diesem Teil des Buches noch eingehen werde, ist die \emph{SDL\_Mixer Bibliothek}, diese gewährleistet Zugriff auf alle möglichen Grafikdateien und hilft uns, sie zu laden und zu schreiben.\newline
+Erhältlich sind die Bibliotheken (und viele andere Sachen) allesamt unter:\newline
+
+\url{http://www.libsdl.org}
+\newpage
+\section{SDL Modi initialisieren}
+
+SDL kann in mehreren Modi initialisiert werden, jedoch werden nicht immer alle ben\"{o}tigt. Daf\"{u}r kann man mehrere Modi kreuzen. So braucht man beispielsweise in einigen Programmen gar keinen Audio-Modus oder es wird bei selbstablaufenden Programmen nichteinmal Input/Eingabe ben\"{o}tigt. 
+
+Deswegen kann man Ressourcen (und damit Leistung!) sparen, indem wir nur das initialisieren, was wir auch wirklich ben\"{o}tigen.
+
+Als Allererstes m\"{u}ssen wir SDL selber initialisieren, wir nehmen ersteinmal den Video-Modus.
+Daf\"{u}r ben\"{o}tigen wir den Befehl \emph{SDL\_Init()}:
+\begin{verbatim}
+	int SDL_Init(Uint32 flags);
+\end{verbatim}
+
+Wir ersehen daraus, dass wir sogenannte Flags \"{u}bergeben, hier nehmen wir den Video-Modus:\newline
+\begin{verbatim}
+SDL_Init(SDL_INIT_VIDEO); 
+\end{verbatim}
+
+
+Nun haben wir den Video-Modus initialisiert und k\"{o}nnen bereits andere Video-Modi initialisieren.
+Es gibt einige solcher Flags, hier die komplette Liste:
+\newline
+
+\begin{tabular}{|l|r|}
+\hline SDL\_INIT\_EVERYTHING & Alle Subsysteme gleichzeitig starten \\\hline
+SDL\_INIT\_INIT & Timer initialisieren\\\hline
+SDL\_INIT\_VIDEO & Video Subsystem initialisieren\\\hline
+SDL\_INIT\_INPUT & Eingabeger\"{a}te (Joystick, Maus, Tastatur) initialisieren\\\hline
+SDL\_INIT\_CDROM & CD-/DVD-ROM Subsystem initialisieren\\\hline
+SDL\_INIT\_JOYSTICK & Joystick Subsystem initialisieren\\\hline
+SDL\_INIT\_NOPARACHUTE & SDL fängt keine fatalen Signale mehr ab\\\hline
+SDL\_INIT\_EVENTTHREAD & Event Manager wird in einem separaten Thread gestartet\\\hline
+
+\end{tabular}
+
+\subsection{Die ODER-Tabelle}
+Doch zuvor wollen wir noch sehen, wie man mehrere Modi miteinander kombiniert, wir möchten den Input-Modus zus\"{a}tzlich! Dies bewerkstelligen wir, indem wir die Werte bitweise miteinander in einer ODER-Tabelle verkn\"{u}pfen. Die ODER-Tabelle verkn\"{u}pft Bits nach folgendem Schema:
+\begin{center}
+\begin{table}[h]
+\caption[tab:ORtable]{ODER-Tabelle mit Eingangsvariablen A + B und Resultat C.}
+\hspace*{1.5in}\begin{tabular}[t]{|p{1in}||r|}
+\hline \emph{ A ODER B }& \emph{C}\\\hline\hline
+0 ODER 0 & 0\\\hline
+0 ODER 1 & 1\\\hline
+1 ODER 0 & 1\\\hline
+1 ODER 1 & 1\\\hline
+\end{tabular}
+\end{table}
+\end{center}
+Das heisst, wenn mindestens eine der beiden Werte, bzw. deren jeweilige Bits die miteinander verkn\"{u}pft werden, 1 ist, ist das Ergebnis (C) 1. So kann man gut Werte miteinander verkn\"{u}pfen, bzw. fehlende Bits auff\"{u}llen.\newline
+Dazu müssen wir nun jedes Bit eines Wertes dem dazugehörigen Bit des anderen Wertes ODER-verknüpfen.
+Das ODER-Zeichen ist in C \& C++ die Pipe: |\newline\\
+Ein kleines Beispiel: \\
+Wir wollen Wert A mit Wert B verkn\"{u}pfen; in der Tabelle steht das neue Resultat, dass wir in C dann erhalten.\newline In der Tabelle sind alle ODER-Fälle enthalten, es ist also transparent, wie der Prozess abläuft.
+\\\\
+\hspace*{0.7in}\begin{tabular}[h]{|l|c|c|r|}
+\hline Zahlensystem & Binär & Dezimal & Hexadezimal \\\hline\hline
+Wert A & 0111 0001 & 71 & 113 \\
+Wert B & 0000 1111 & 0F &  15 \\ \hline
+Wert C & 0111 1111 & 80 & 128 \\ \hline
+\end{tabular}
+\newpage
+\part{ANSI-C-Kurs für Anfänger}
+\label{part:ansic}
+\chapter{Hintergrundwissen}
+\section{Entwicklung}
+C gehört zu den sogenannten Hochsprachen und wurde in den 1970'er Jahren entwickelt von \emph{Ken Thompson} und \emph{Dennis Ritchie} in den Bell Labs. Ursprünglich, als eine der ersten Hochsprachen, gab es \emph{ALGOL 60} die etwa 1960 entwickelt worden war von einem internationalen Komitee. Daraus wurde dann \emph{CPL} (\textbf{C}ombined \textbf{P}rogramming \textbf{L}anguage) geschaffen, woraus dann wiederum \emph{BCPL} (für \textbf{B}asic \textbf{CPL}) entstand. 1970 entstand dann einer der direkten Vorgänger von dem, was später als (ANSI-)C zu weltweiter Verbreitung finden sollte: Simpel und schlicht \textbf{B} wurde es genannt.
+
+Vielen ist bekannt, dass wir die Entwicklung der Programmiersprache \emph{C} den Bell Laboratories zu verdanken haben, welche im Zuge Ihrer Planung und Entwicklung von \emph{UNIX} das System später sogar in C schrieben.
+Denn zunächst entstand durch die beiden Entwickler \emph{Ken Thompson} und \emph{Dennis Ritchie} am \emph{MIT} das \emph{Betriebssystem UNIX}, und zwar noch in \textbf{Assembler}\footnotetext{Maschinensprache: Für den Computer direkt verständliche Codes (\emph{Mnemonics}).} \\Da Assembler nicht gerade leicht gerade gut lesbar und verständlich ist aufgrund ihrer Struktur und der verwendeten Zahlensysteme, reifte in den beiden Entwicklern der Wunsch, eine einfache wie schnelle Programmiersprache zu entwickeln, welche nicht bloss auf einem Rechner lauffähig sein sollte, sondern auf jedem Rechner lauffähig sein sollte ohne grosse Anpassungen am Quelltext vornehmen zu müssen. Der grosse Nachteil in Assembler lag nämlich besonders darin, dass für nahezu jeden Prozessor wieder ein teilweise komplett anderer Befehlssatz offeriert wurde, hinzu kamen andere Eigenheiten wie verschiedene \textit{Byte-Reihenfolgen}\footnotetext{Lesen Sie dazu bitte das Kapitel $\rightarrow$\emph{Little Endian vs. Big Endian - Byte-Reihenfolgen und ihre Auswirkungen} und systemspezifische Arten der Speichernutzung.}
+\section{omg}
+\end{document}
