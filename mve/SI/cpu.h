@@ -41,7 +41,7 @@ class tCPU
         struct
         {
             unsigned char a,flags,b,c,d,e,h,l;  
-        }
+        };
           
     }reg;
     int cycles;
@@ -51,6 +51,7 @@ class tCPU
     unsigned char aux;
     tCPU();
     ~tCPU();
+ 
     private:
 };
 

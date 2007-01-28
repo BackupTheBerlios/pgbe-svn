@@ -4,11 +4,11 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>cpu.h</itemPath>
       <itemPath>cpu.cc</itemPath>
+      <itemPath>cpu.h</itemPath>
       <itemPath>main.cc</itemPath>
-      <itemPath>memory.h</itemPath>
       <itemPath>memory.cc</itemPath>
+      <itemPath>memory.h</itemPath>
       <itemPath>stdtypes.h</itemPath>
     </logicalFolder>
     <logicalFolder name="HeaderFiles"
@@ -24,6 +24,8 @@
                    projectFiles="false">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
+    <itemPath>rom.cc</itemPath>
+    <itemPath>rom.h</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <defaultConf>0</defaultConf>
@@ -71,6 +73,14 @@
       <item path="memory.h">
         <itemTool>3</itemTool>
       </item>
+      <item path="rom.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="rom.cc">
+        <itemTool>1</itemTool>
+        <ccCompilerTool>
+        </ccCompilerTool>
+      </item>
     </conf>
     <conf name="Release" type="1">
       <toolsSet>
@@ -115,6 +125,14 @@
       </item>
       <item path="memory.h">
         <itemTool>3</itemTool>
+      </item>
+      <item path="rom.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="rom.cc">
+        <itemTool>1</itemTool>
+        <ccCompilerTool>
+        </ccCompilerTool>
       </item>
     </conf>
   </confs>

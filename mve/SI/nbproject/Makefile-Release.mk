@@ -22,6 +22,7 @@ include Makefile
 
 # Object Files
 OBJECTFILES= \
+	build/Release/GNU-Linux-x86/rom.o \
 	build/Release/GNU-Linux-x86/cpu.o \
 	build/Release/GNU-Linux-x86/memory.o \
 	build/Release/GNU-Linux-x86/main.o
@@ -45,6 +46,10 @@ LDLIBSOPTIONS=
 dist/Release/GNU-Linux-x86/si: ${OBJECTFILES}
 	${MKDIR} -p dist/Release/GNU-Linux-x86
 	${LINK.cc} -o dist/Release/GNU-Linux-x86/si ${OBJECTFILES} ${LDLIBSOPTIONS} 
+
+build/Release/GNU-Linux-x86/rom.o: rom.cc 
+	${MKDIR} -p build/Release/GNU-Linux-x86
+	$(COMPILE.cc) -O2 -o build/Release/GNU-Linux-x86/rom.o rom.cc
 
 build/Release/GNU-Linux-x86/cpu.o: cpu.cc 
 	${MKDIR} -p build/Release/GNU-Linux-x86

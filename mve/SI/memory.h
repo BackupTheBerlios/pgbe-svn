@@ -14,7 +14,7 @@ class tMemory
 {
     public:
         unsigned char *screen;
-        unsigned char *mem;
+        unsigned char *memory;
         tMemory();
         ~tMemory();
     private:

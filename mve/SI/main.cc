@@ -9,11 +9,11 @@
 #include "stdtypes.h"
 #include "cpu.h"
 #include "memory.h"
+#include "rom.h"
 using namespace std;
 #define SPEED 5
 SDL_Surface *screen;
 SDL_Surface *wall;
-//mem = new unsigned char[0x4000];
 
 
 static const unsigned char cycle_table[0x100]={
@@ -51,8 +51,13 @@ int main(int argc, char** argv)
 {
     using namespace std;
     tCPU *cpu = new tCPU();
-    tMemory *mem = new tMemory();
+    tROM *rom = new tROM();
+    tMemory *memory = new tMemory();
+    unsigned char *mem = new unsigned char[0x4000];
+   // memory->memory = mem;                                                                                                                                                                   "
     cpu->pc = 0xffdd;
+    rom->memory = mem;
+   // rom->memory = 20;
     printf("pclo:%0x",cpu->pclo);
     printf("pchi:%0x",cpu->pchi);
     SDL_Rect srect,drect;
