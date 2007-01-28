@@ -130,8 +130,9 @@ Speicheradresse & \$2000 & \$2001 \\\hline
 \$FFF0 im Speicher & FF & F0\\\hline
 \end{tabular}
 \end{center}
-\newline
-Leider ist dem jedoch nicht (immer!) so. In den 70'er Jahren gab es bei der Entwicklung der ersten Mikroprozessoren verschiedene Hersteller, die die Mikroprozessoren auf unterschiedliche Art \& Weise bauten, was die Assembler-Sprache anging als auch die Methode des Ein- und Auslesens von Adressen und Daten im Speicher.\newlabel
+
+
+Leider ist dem jedoch nicht (immer!) so. In den 70'er Jahren gab es bei der Entwicklung der ersten Mikroprozessoren verschiedene Hersteller, die die Mikroprozessoren auf unterschiedliche Art \& Weise bauten, was die Assembler-Sprache anging als auch die Methode des Ein- und Auslesens von Adressen und Daten im Speicher.\newline
 So ergab es sich, dass Intel seit dem 8086er bis heute zu den x86er Modellen aufwärts den \textbf{Little-Endian-Standard} verwendet, während viele andere Prozessorhersteller wie z.B. \emph{Motorola} auf den \textbf{Big-Endian-Standard} setzten. Gute Beispiele dafür sind die \emph{PowerPC-Prozessoren} in den \emph{Apple-Rechnern} oder in den \emph{Amigas}.
 
 Worin unterscheiden sich nun diese beiden Ansätze? Solange der Prozessor von einer Speicherstelle nur ein Byte auslesen muss, ist das noch nicht problematisch, da ein Byte immer auf dieselbe Art und Weise interpretiert wird, die Bits selber wechseln die Position ja nicht. Setzt man jedoch die Reihenfolge der Bytes um, so kehren sich natürlich die Zahlen um und dies führt natürlich zu enormen Problemen, wenn dies nicht rechtzeitig erkannt wird und der Prozessor richtig programmiert wird, im entsprechenden Endian-Stil.\newline
@@ -145,8 +146,13 @@ Speicheradresse & \$2000 & \$2001 \\\hline
 \$FFF0 im Speicher,wie es bei Big-Endian abgelegt ist & FF & F0\\\hline
 \end{tabular}
 \end{center}
-\newline
+
+
 Wir sehen, dass bei Little-Endian der Wert nun umgekehrt als wie wir ihn von links nach rechts lesen würden im Speicher steht. Darauf weist auch der Name \emph{Little-Endian} hin: Die niederwertigeren Bits zuerst (also links) nach rechts, wo am Ende das höchstwertige Bit steht. Bei \emph{Big-Endian} ist es genau umgekehrt: Das Bit mit der grössten Wertigkeit kommt zuerst und liest sich, von links nach rechts genau gleich wie die Adresse \$FFF0, wie wir es normalerweise lesen oder schreiben würden.
+\subsection{Anwendungszwecke}
+Vielleicht fragen Sie sich, weswegen wir das wissen müssen, da wir in C/C++ ja bei normalen Programmen sowieso nie damit konfrontiert werden, da die Hinterlegung im Speicher ja C/C++, bzw. der Compiler für uns übernimmt. Dies hat einen einfachen Grund: Zum Beispiel bei der Netzwerkprogrammierung, werden die Datenpakete auch teilweise im Big-Endian-Format umhergeschickt, so dass wir natürlich wissen müssen am Ziel-Rechner, ob unser Computer met dem Netzwerk-Endian-Format kompatibel ist oder nicht und wie wir diese Datenpakete auspacken und wieder zusammenbauen müssen.
+Ein weiterer Grund ist die Emulation von fremden Systemen/Mikroprozessoren, wie ich es im letzten Teil dieses Buches beschreibe. Dort werde ich einen Little-Endian-Rechner, den Intel 8080, emulieren und muss dementsprechend wissen, wie im emulierten Speicher der Prozessor seine Adressen hinterlegt, damit er die Daten richtig interpretieren kann.\\
+
 \chapter{Programmieren unter Linux}
 
 
