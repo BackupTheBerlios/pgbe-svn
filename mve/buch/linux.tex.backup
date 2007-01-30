@@ -348,8 +348,12 @@ Um Ihnen zuvor einen besseren, groben Überblick zu verschaffen, habe ich die Da
 Datentyp & Schlüsselwort & Bytes & Verwendung & Zahlenraum\\\hline\hline
 Buchstabe(Character) mit Vorzeichen & signed char & 1 & Buchstaben und Sätze & -128..127\\\hline
 Buchstabe(Character) ohne Vorzeichen & unsigned char & 1 & 0..255\\\hline
-Ganzzahl(Integer) mit Vorzeichen & long integer & 8 &\\\hline
-Ganzzahl(Integer) mit Vorzeichen & int & 
+Ganzzahl(Integer) mit Vorzeichen & long int & 8 &\\\hline
+Ganzzahl(Integer) mit Vorzeichen & int & 4&\\\hline
+Ganzzahl(Integer) ohne Vorzeichen & short int & 4&\\\hline
+Fliesspunktzahl(Floating Point) nur mit Vorzeichen & float & 4&\\\hline
+Fliesspunktzahl(Floating Point) nur mit Vorzeichen & double & 8&\\\hline
+
  
 \end{tabular}
 \end{table}
