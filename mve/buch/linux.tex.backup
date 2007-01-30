@@ -284,13 +284,13 @@ Der grosse Nachteil in Assembler lag nämlich besonders darin, dass für nahezu 
 
 Da nun \emph{UNIX} eben aus oben genannten Gründen nicht auf allen Systemen lauffähig war, beschloss der junge Wissenschaftler \emph{Dennis Ritchie}, eine Sprache zu entwickeln, die für solche performantenwie portablen Applikationen, bzw. deren Entwicklung, geeignet war und schuf auf einer \emph{PDP-11}, ein damals weitverbreiteter Grossrechner, im Jahr 1971 auf Basis der Programmiersprachen \textbf{BCPL} und \textbf{B} endlich die erste Version von \emph{\textbf{C}}!
 
-Schon bald darauf folgte die Feuertaufe im Jahre 1972 für C: UNIX wurde nun von \emph{Assembler} in \emph{C} umgeschrieben und für den PDP-11 veröffentlicht.\newline
-In den nächsten Jahrzehnten sollte es sich auf der ganzen Welt rasant verbreiten und weiterentwickeln . Ursprünglich nur für Grossrechner und die Industrie gedacht, verbreitete es sich in den 80'er Jahren ebenfalls dank der ersten Umsetzungen für Intel-Rechner auf Home-Computer von Privatleuten, welche dank UNIX die Kapazität ihrer Heimrechner immer mehr ausnutzen wollten und erstmals konnten. Eine der erfolgreichsten, unixoiden (sprich: \emph{UNIX}-ähnlichen) Betriebssysteme hat weltweite Verbreitung auf alle möglichen Arten von Prozessoren und Rechnern gefunden und ist uns heute bekannt unter dem Namen \textbf{Linux}!
+Schon bald darauf folgte die Feuertaufe im Jahre 1972 für \textbf{C}: \textbf{UNIX} wurde nun von \emph{\textbf{Assembler}} in \emph{\textbf{C}} umgeschrieben und für den \textbf{PDP-11} veröffentlicht.\newline
+In den nächsten Jahrzehnten sollte es sich auf der ganzen Welt rasant verbreiten und weiterentwickeln. Ursprünglich nur für Grossrechner und die Industrie gedacht, verbreitete es sich in den 80'er Jahren ebenfalls dank der ersten Umsetzungen für Intel-Rechner auf Home-Computer von Privatleuten, welche dank \textbf{UNIX} die Kapazität ihrer Heimrechner immer mehr ausnutzen wollten und erstmals konnten. Eine der erfolgreichsten, \textit{unixoiden} (sprich: \emph{\textbf{UNIX}	}-ähnlichen) Betriebssysteme hat weltweite Verbreitung auf alle möglichen Arten von Prozessoren und Rechnern gefunden und ist uns heute bekannt unter dem Namen \textbf{Linux}!
 
-Ganz im Sinne der Entwickler haben sich \emph{UNIX}, bzw. heute vermehrt auch \emph{Linux} weltweit überwiegend auf Servern, aber auch auf Client-Rechnern, verbreitet und wurden auf alle möglichen Plattformen portiert. Nicht zuletzt verdankt man diesen grossen Erfolg  der \textbf{GPL}-Lizenzierung \footnote{Mehr Informationen und Hinweise hierzu finden Sie im Kapitel "'Programmieren unter Linux"`}, die einen grossen Teil zur Popularität und öffentlichen Beteiligung beigetragen hat durch Offenlegung der Quelltexte.
+Ganz im Sinne der Entwickler haben sich \emph{\textbf{UNIX}}, bzw. heute vermehrt auch \emph{\textbf{Linux}} weltweit überwiegend auf Servern, aber auch auf Client-Rechnern, verbreitet und wurden auf alle möglichen Plattformen portiert. Nicht zuletzt verdankt man diesen grossen Erfolg  der \textbf{GPL}-Lizenzierung \footnote{Mehr Informationen und Hinweise hierzu finden Sie im Kapitel "'Programmieren unter Linux"`}, die einen grossen Teil zur Popularität und öffentlichen Beteiligung beigetragen hat durch Offenlegung der Quelltexte.
 
 Und genau wie sein Urahn UNIX wurde Linux zu einem überwiegenden Teil in \emph{C} geschrieben.
-Die meisten Distributionen\footnote{Distributionen sind Zusammenstellungen von Linux-Software mit Linux als Kern(el). Sie werden von kommerziellen Betreibern und der privaten Linux-Community gepflegt und gewartet.} liefern heute standardmässig einen C-Compiler (üblicherweise den \emph{gcc} $\rightarrow$ \emph{GNU C Compiler}) und den Quelltext zur Distribution mit; so wird dem Benutzer gleich von Anfang an eine Entwicklungsumgebung zur Verfügung gestellt, die ihm erlaubt, das System nach seinen Wünschen anzupassen oder zu verändern, bzw. sogar Fehler zu berichtigen und Features zu programmieren, welche er in die Distribution zurückfliessen lässt und somit zur ständigen Weiterentwicklung beiträgt.
+Die meisten Distributionen\footnote{Distributionen sind Zusammenstellungen von Linux-Software mit Linux als Kern(el). Sie werden von kommerziellen Betreibern und der privaten Linux-Community gepflegt und gewartet.} liefern heute standardmässig einen C-Compiler (üblicherweise den \emph{\textbf{gcc}} $\rightarrow$ \emph{\textbf{GNU C Compiler}}) und den Quelltext zur Distribution mit; so wird dem Benutzer gleich von Anfang an eine Entwicklungsumgebung zur Verfügung gestellt, die ihm erlaubt, das System nach seinen Wünschen anzupassen oder zu verändern, bzw. sogar Fehler zu berichtigen und Features zu programmieren, welche er in die Distribution zurückfliessen lässt und somit zur ständigen Weiterentwicklung beiträgt.
 
 Um nocheinmal zu C zurückzukommen: Durch die Vervielfältigung des sich ständig in Wandlung befindlichen Betriebssystems UNIX / Linux, gab es während den 70'er und 80'er Jahren keine eindeutige Definition, welchen Sprachumfang C nun genau umfasst.
 
@@ -305,11 +305,11 @@ Mit dem Erlernen von C investieren Sie in ein zukunftssicheres Wissen, welches a
 
 Durch die hohe Verbreitung von \emph{C und C++} ist dieses Wissen in kommerzieller als auch, sogar insbesondere, in non-kommerzieller (\emph{Open-Source, Hobby-Entwickler}) Hinsicht hochgefragt.
 
-Was mit Linux, UNIX und Mac OS X (\emph{Objective-C}), eignen sich diese Sprachen perfekt zur Systemprogrammierung. Darüberhinaus werden die C-Sprachen auch noch eingesetzt für Treiberentwicklung und für die Anwendungsentwicklung auf eingebetteten Systemen/Mikrocontrollern.
+Was mit \textbf{Linux}, \textbf{UNIX} und \textbf{Mac OS X} (\emph{\textbf{Objective-C}}), eignen sich diese Sprachen perfekt zur Systemprogrammierung. Darüberhinaus werden die C-Sprachen auch noch eingesetzt für Treiberentwicklung und für die Anwendungsentwicklung auf eingebetteten Systemen/Mikrocontrollern.
 
-Die meisten der heutigen kommerziellen Anwendungen werden in \emph{C oder C++} geschrieben. Vermehrt kommt seit einigen Jahren auch \emph{Java} zum Einsatz, da im Gegensatz zu C/C++ die Quelltexte von Java nur ein einziges einmal kompiliert werden müssen und Anschluss auf jedem System, welches über eine \textbf{JVM}\footnote{Java Virtual Machine - Eine virtuelle System-Umgebung, in der Java-Anwendungen ablaufen} verfügt in der Lage ist, die Programme laufen zu lassen.
+Die meisten der heutigen kommerziellen Anwendungen werden in \emph{\textbf{C oder C++}} geschrieben. Vermehrt kommt seit einigen Jahren auch \emph{Java} zum Einsatz, da im Gegensatz zu \textbf{C/C++} die Quelltexte von \textbf{Java} nur ein einziges einmal kompiliert werden müssen und Anschluss auf jedem System, welches über eine \textbf{\textbf{JVM}}\footnote{Java Virtual Machine - Eine virtuelle System-Umgebung, in der Java-Anwendungen ablaufen} verfügt, in der Lage ist, die Programme laufen zu lassen.
 
-Es ist heutzutage offensichtlich, dass immer mehr Wert darauf gelegt wird, dass Programme leicht auf mehreren Plattformen lauffähig sind, und, wie schon erwähnt, bieten C und C++ genau diese Möglichkeit, den Quelltext ohne (grössere) Änderungen auf jeder Plattform zu übersetzen. Einer der weiteren Vorteile ist die geringe Speichernutzung, bzw. das optimale Speichermanagement, worin besonders C++ punkten kann. Nach C/C++ sind meistens nur noch Assembler-Anwendungen kleiner, welche jedoch nicht annähernd über dieselbe Flexibilität verfügen.
+Es ist heutzutage offensichtlich, dass immer mehr Wert darauf gelegt wird, dass Programme leicht auf mehreren Plattformen lauffähig sind, und, wie schon erwähnt, bieten \textbf{C} und \textbf{C++} genau diese Möglichkeit, den Quelltext ohne (grössere) Änderungen auf jeder Plattform zu übersetzen. Einer der weiteren Vorteile ist die geringe Speichernutzung, bzw. das optimale Speichermanagement, worin besonders C++ punkten kann. Nach C/C++ sind meistens nur noch Assembler-Anwendungen kleiner, welche jedoch nicht annähernd über dieselbe Flexibilität verfügen.
 
 Um das Augenmerk auch noch ein wenig auf \emph{C++} zu lenken: C++ verfügt gegenüber C viele Vorteile. C++ selber ist eine \emph{Obermenge} von C, das heisst: Alle Elemente von C sind in C++ auch enthalten; darüberhinaus besitzt C++ jedoch noch viele weitere Fähigkeiten, die in der modernen Software-Entwicklung nicht mehr wegzudenken wären.
 
@@ -323,6 +323,40 @@ Dazu gehören unter Anderem:\newline
 \item Konstruktoren und Destruktoren: Beim Erzeugen und Löschen einer Instanz einer Klasse, werden selbstdefinierte Funktionen, den Konstruktor und den Destruktor, ausgeführt. Ideal um z.B. dazugehörigen Speicher gleich mitzulöschen, damit er nicht im Speicher hängenbleibt.
 \item Polymosphirmus: Darauf gehe ich in C++-Kurs näher ein, da das hier sonst den Rahmen sprengt.
 \end{itemize}
+\subsection{C-Standards und dieses Buch}
+Ich habe in diesem Buch bewusst den ANSI-C-Standard \textbf{C99} durchgehend benutzt; dabei muss man weiterhin unterscheiden zwischen verschiedenen Revisionen des Standards. So gab es neben dem ursprünglichen (nicht-ANSI-)\textbf{K\&R-C} (logischerweise \emph{Kernighan \& Ritchie-C}) von \textbf{1978} die ANSI-Varianten \textbf{C89, C90} und \textbf{C99l}; die Zahl steht dabei stellvertretend für die Jahreszahl der Veröffentlichung\newline Dabei profitierten die späteren Revisionen von den Neuerungen seines weiterentwickelten Bruders \textbf{C++}, von dem viele Funktionen und Definitionen zurückflossen nach \textbf{C}.
+
+Einige kleine Beispiele von \textbf{C99} im Vergleich \textbf{K\&R-C}:
+
+\begin{itemize}
+ \item Der zeilenweise Kommentar wurde ergänzend zum altbekannten "\textbf{/* ... */}" von \textbf{C++} übernommen.
+\item Die Variable \textbf{void} wurdei ns Repertoire der Sprache aufgenommen.
+\end{itemize}
+
+\section{Datentypen}
+Wenn wir programmieren, müssen wir temporär Daten in Form von Bytes im Speicher lagern. Diese bekommen einen Platz, \textbf{Variable}, zur Aufnahme zugewiesen. Dabei müssen wir beachten, \emph{wie} wir sie ablagern möchten und wie der Computer sie zu verstehen hat. Deswegen müssen die Variablen in bestimmten Datentypen deklariert werden. Zudem brauchen auch Funktionen\footnote{Sequenzen von Programmcode irgendwo im Speicher, die man immer wieder aufrufen kann.} einen Datentyp, denn eine Funktion gibt nachdem sie aufgerufen wurde einen Wert zurück, nämlich das erwartete Resultat der Funktion.
+
+Wenn wir zum Beispiel eine Funktion haben, die uns eine Zahl multplizieren soll, dann wissen wir, dass wir eine Ganzzahl (Integer) zurückbekommen möchten, wenn wir normale Dezimalzahlen verwenden. Wichtig zu wissen ist für uns auch, wieviele Bytes eine Variable zugewiesen bekommt im Speicher, damit wir wissen, wieviel Speicher/Variablen wir eines Typs benötigen um z.B. eine Datei komplett in den Speicher laden zu können.
+
+\emph{C} verfügt über eine ganze Reihe von Datentypen, die in verschiedener Konstellation mit zusätzlichen Attributen deklariert werden können.
+In den folgenden Unterkapiteln gehe ich auf jeden enizelnen Datentyp und seine Verwendung genauer ein anhand eines analytischen Beispiels.
+Um Ihnen zuvor einen besseren, groben Überblick zu verschaffen, habe ich die Datentypen in einer Tabelle zusammengefasst:
+\begin{center}
+\begin{table}[h]
+\caption{Eine Tabelle mit C-Datentypen und ihrer Anwendung.}
+\begin{tabular}{|l|c|c|c|r|}\hline
+Datentyp & Schlüsselwort & Bytes & Verwendung & Zahlenraum\\\hline\hline
+Buchstabe(Character) mit Vorzeichen & signed char & 1 & Buchstaben und Sätze & -128..127\\\hline
+Buchstabe(Character) ohne Vorzeichen & unsigned char & 1 & 0..255\\\hline
+Ganzzahl(Integer) mit Vorzeichen & long integer & 8 &\\\hline
+Ganzzahl(Integer) mit Vorzeichen & int & 
+ 
+\end{tabular}
+\end{table}
+\end{center}
+
+
+
 
 \section{Das erste Programm}
 Für Ihr erstes C-Programm, können Sie untenstehenden Quelltext verwenden; diese Anwendung liest über die \textbf{Standardeingabe (STDIN)}, in Ihrem Fall die Tastatur, einen String ein. Jener String darf maximal 15 Zeichen betragen, da nicht mehr Speicher alloziiert worden ist, und wird nach der Eingabe mit Return in das Programm übergeben, welches diesen Satz anschliessend auf der \textbf{Standardausgabe (STDOUT)}, dem Bildschirm, ausgegeben.
